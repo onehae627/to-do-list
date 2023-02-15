@@ -25,7 +25,9 @@ export default function WritePage() {
       form.content.value
     );
 
-    noticeSnackbarStatus.open(`${newTodoId}번 할일이 추가되었습니다.`);
+    noticeSnackbarStatus.open(`${newTodoId}번 할 일이 추가되었습니다.`);
+    form.content.value = "";
+    form.content.focus();
   };
   return (
     <>
