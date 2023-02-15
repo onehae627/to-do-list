@@ -1,0 +1,27 @@
+import { useTodosStatus } from "../hooks";
+import { useTodoOptionDrawerStatus } from "../hooks";
+import TodoOptionDrawer from "../components/TodoOptionDrawer";
+import TodoListItem from "../components/TodoListItem";
+
+export default function TodoListPage() {
+  const todosStatus = useTodosStatus();
+  const todoOptionDrawerStatus = useTodoOptionDrawerStatus();
+
+  return (
+    <>
+      <TodoOptionDrawer status={todoOptionDrawerStatus} />
+      <div className="mt-4 px-4">
+        <ul>
+          {todosStatus.todos.map((todo, index) => (
+            <TodoListItem
+              key={todo.id}
+              todo={todo}
+              index={index}
+              openDrawer={todoOptionDrawerStatus.open}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
