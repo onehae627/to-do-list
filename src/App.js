@@ -10,6 +10,7 @@ import {
 import MainPage from "./pages/MainPage";
 import WritePage from "./pages/WritePage";
 import { NoticeSnackbar } from "./components/NoticeSnackbar";
+import EditPage from "./pages/EditPage";
 
 function App() {
   const location = useLocation();
@@ -23,13 +24,13 @@ function App() {
             {/* 메인일때는 서브1 보이게. */}
             {location.pathname != "/write" && (
               <NavLink to="/write" className="select-none">
-                글쓰기
+                Add TODO
               </NavLink>
             )}
             {/* 서브1일때는 메인 보이게. */}
             {location.pathname == "/write" && (
               <NavLink to="/main" className="select-none">
-                메인
+                LIST
               </NavLink>
             )}
           </div>
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/main" element={<MainPage />} />
         <Route path="/write" element={<WritePage />} />
+        <Route path="/edit/:id" element={<EditPage />} />
         <Route path="*" element={<Navigate to="/main" />} />
       </Routes>
     </>
