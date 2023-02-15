@@ -19,16 +19,15 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <div className="flex-1"></div>
-          <span className="font-bold select-none">앱 이름</span>
+          <span className="font-bold select-none">Ordinary Days</span>
           <div className="flex-1 flex justify-end">
-            {/* 메인일때는 서브1 보이게. */}
-            {location.pathname != "/write" && (
+            {location.pathname == "/main" && (
               <NavLink to="/write" className="select-none">
                 Add TODO
               </NavLink>
             )}
-            {/* 서브1일때는 메인 보이게. */}
-            {location.pathname == "/write" && (
+
+            {location.pathname != "/main" && (
               <NavLink to="/main" className="select-none">
                 LIST
               </NavLink>
