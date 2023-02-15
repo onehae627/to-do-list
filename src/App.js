@@ -9,7 +9,7 @@ import {
 
 import MainPage from "./pages/MainPage";
 import WritePage from "./pages/WritePage";
-import NoticeSnackbar from "./components/NoticeSnackbar";
+import { NoticeSnackbar } from "./components/NoticeSnackbar";
 
 function App() {
   const location = useLocation();
