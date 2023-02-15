@@ -14,6 +14,17 @@ export default function TodoListPage() {
   const [filterCompletedIndex, setFilterCompletedIndex] = useRecoilState(
     TodoList__filterCompletedIndexAtom
   );
+  const getFilterTodos = () => {
+    if (filterCompletedIndex == 1) {
+      return todosStatus.todos.filter((todo) => !todo.completed);
+    }
+    if (filterCompletedIndex == 2) {
+      return todosStatus.todos.filter((todo) => todo.completed);
+    }
+    return todosStatus.todos;
+  };
+
+  const filteredTodos = getFilterTodos();
 
   return (
     <>
@@ -54,7 +65,7 @@ export default function TodoListPage() {
       </Tabs>
       <div className="mt-4 px-4">
         <ul>
-          {todosStatus.todos.map((todo, index) => (
+          {filteredTodos.map((todo, index) => (
             <TodoListItem
               key={todo.id}
               todo={todo}
