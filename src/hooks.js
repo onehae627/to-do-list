@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { todosAtom, lastTodoIdAtom } from "./atoms";
 import { dateToStr } from "./util";
 import produce from "immer";
+
 export function useTodoOptionDrawerStatus() {
   const [todoId, setTodoId] = useState(null);
   const opened = useMemo(() => todoId !== null, [todoId]);

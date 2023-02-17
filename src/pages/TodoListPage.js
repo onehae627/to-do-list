@@ -32,10 +32,27 @@ export default function TodoListPage() {
 
   const filteredTodos = getFilterTodos();
 
-  const sortedTodos = [...filteredTodos].sort((a, b) => {
-    if (a.performDate == b.performDate) return 0;
-    return a.performDate > b.performDate ? 1 : -1;
-  });
+  const getSortedTodos = () => {
+    if (sortIndex == 0) {
+      return [...filteredTodos].sort((a, b) => {
+        if (a.performDate == b.performDate) return 0;
+        return a.performDate > b.performDate ? 1 : -1;
+      });
+    } else if (sortIndex == 1) {
+      return [...filteredTodos].sort((a, b) => {
+        if (a.performDate == b.performDate) return 0;
+        return a.performDate < b.performDate ? 1 : -1;
+      });
+    } else if (sortIndex == 2) {
+      return [...filteredTodos].sort((a, b) => {
+        return a.id > b.id ? 1 : -1;
+      });
+    }
+
+    return filteredTodos;
+  };
+
+  const sortedTodos = getSortedTodos();
 
   return (
     <>
