@@ -20,25 +20,31 @@ function App() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <div className="flex-1"></div>
-          <span className="font-bold select-none">Ordinary Days</span>
-          <div className="flex-1 flex justify-end">
-            {location.pathname == "/main" && (
-              <NavLink to="/write" className="select-none">
-                Add TODO
-              </NavLink>
-            )}
+          <NavLink
+            to="/main"
+            className="font-bold select-none self-stretch flex items-center mr-auto"
+          >
+            Ordinary Day's Plan
+          </NavLink>
 
-            {location.pathname != "/main" && (
-              <span
-                to="/main"
-                className="select-none"
-                onClick={() => navigate(-1)}
-              >
-                LIST
-              </span>
-            )}
-          </div>
+          {location.pathname == "/main" && (
+            <NavLink
+              to="/write"
+              className="select-none self-stretch flex items-center"
+            >
+              Write
+            </NavLink>
+          )}
+
+          {location.pathname != "/main" && (
+            <span
+              to="/main"
+              className="select-none self-stretch flex items-center cursor-pointer"
+              onClick={() => navigate(-1)}
+            >
+              List
+            </span>
+          )}
         </Toolbar>
       </AppBar>
       <NoticeSnackbar />
